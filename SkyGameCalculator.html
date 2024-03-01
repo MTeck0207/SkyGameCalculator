@@ -1,0 +1,1521 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Sky Game Calculator</title>
+        <!--Bootstrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+        <!--CSS-->
+        <style>
+            body{
+                width: 1980px;
+                background-color: #1995ad;
+                color: black;
+            }
+            
+            table {
+                width: 100%;
+            }
+            input { 
+                text-align: center;
+                width: 70px;
+            }
+            .player-info{
+                margin: 20px; 
+                text-align: center;
+            }
+            .display-td, .display-th{
+                border: 1px solid black;
+                padding: 2px;
+                text-align: center;
+            }
+            .tol-td, .tol-th {
+                padding: 2px;
+                text-align: center;
+            }
+            .tol-th {
+                opacity: 0.0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <div class="row" style="margin: 10px; text-align: center;">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <h1><b>Sky Game Calculator</b></h1>
+                    <p>Developed and Designed by NMT <br> Version 0.1.0 </p>
+
+                </div>
+                <div class="col-sm-4"></div>
+            </div>    
+        </header>
+
+        <content>
+            <div class="row">
+                <div class="col-sm-1"></div>
+
+                <div class="col-sm-10" style="background-color: #a1d6e2;">
+                    <div class="player-info">
+                        <label>Candle: </label>
+                        <input type="number" id="candle" onchange="update()">
+                        <label>Heart: </label>
+                        <input type="number" id="heart" onchange="update()">
+                        <label>Season Candle: </label>
+                        <input type="number" id="scandle" onchange="update()">
+                        <label>Season Heart: </label>
+                        <input type="number" id="sheart" onchange="update()">
+                        <label>Red Candle: </label>
+                        <input type="number" id="rcandle" onchange="update()">
+                        <label>Event Ticket: </label>
+                        <input type="number" id="eticket" onchange="update()">
+                        </br></br>
+
+                        <label>Candle per day: </label>
+                        <input type="number" id="cpd" onchange="update()">
+                        <label>Heart per day: </label>
+                        <input type="number" id="hpd" onchange="update()">
+                        <label>Season Candle per day: </label>
+                        <input type="number" id="scpd" onchange="update()">
+                        <label>Event Ticket per day: </label>
+                        <input type="number" id="tpd" onchange="update()">
+                        </br>
+                    </div>
+                </div>
+
+                <div class="col-sm-1"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-1"></div>
+
+                <div class="col-sm-10">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-3" style="background-color:#f1f1f2;">
+                                <h1><center>Normal Traveling Spirit</center></h1>
+                                <h2><center>光之低语者复刻</center></h2></br>
+
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="display-th">Start</th>
+                                            <th class="display-th">End</th>
+                                            <th class="display-th">Days</th>
+                                            <th class="display-th">Left</th>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                        <td class="display-td"><span id="nTravelStart"></span></td>  
+                                        <td class="display-td"><span id="nTravelEnd"></span></td>
+                                        <td class="display-td"><span id="nTravelDays"></span></td>
+                                        <td class="display-td"><span id="nTravelLeft"></span></td>
+                                    </tr>
+                                </table></br>
+                            
+
+                                <table id="normal_travelling">
+                                    <thead>
+                                        <tr>
+                                            <th style="opacity: 0.0;">CREDITS_HERE</th>
+                                            <th class="display-th">Candle</th>
+                                            <th class="display-th">Heart</th>
+                                            <th class="display-th">Rcandle</th>
+                                            <th class="display-th">Trade</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td class="display-td">魔法节点</td>
+                                            <td class="display-td">5</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="光之低语者复刻_魔法节点1" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">鸟头饰</td>
+                                            <td class="display-td">45</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="光之低语者复刻_鸟头饰" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">爱心节点</td>
+                                            <td class="display-td">3</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="光之低语者复刻_爱心节点" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">永翼节点</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td">2</td>
+                                            <td class="display-td"><input type="checkbox" id="光之低语者复刻_永翼节点" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">魔法节点</td>
+                                            <td class="display-td">5</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="光之低语者复刻_魔法节点2" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">发型</td>
+                                            <td class="display-td">50</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="光之低语者复刻_发型" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">斗篷</td>
+                                            <td class="display-td">70</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="光之低语者复刻_斗篷" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">服饰</td>
+                                            <td class="display-td">65</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="光之低语者复刻_服饰" onchange="update()"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="tol-th">CREDITS_HERE</th>
+                                            <th class="tol-th">Candle</th>
+                                            <th class="tol-th">Heart</th>
+                                            <th class="tol-th">Rcandle</th>
+                                            <th class="tol-th">Trade</th>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                        <td class="tol-td">Total Need: </td>
+                                        <td class="tol-td"><span id="nTotalCandle">0</span></td>  
+                                        <td class="tol-td"><span id="nTotalHeart">0</span></td>
+                                        <td class="tol-td"><span id="nTotalRcandle">0</span></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tol-td">During Event: </td>
+                                        <td class="tol-td"><span id="nDuringCandle">0</span></td>  
+                                        <td class="tol-td"><span id="nDuringHeart">0</span></td>
+                                        <td class="tol-td"><span id="nDuringRcandle">0</span></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tol-td">After End: </td>
+                                        <td class="tol-td"><span id="nAfterCandle">0</span></td>  
+                                        <td class="tol-td"><span id="nAfterHeart">0</span></td>
+                                        <td class="tol-td"><span id="nAfterRcandle">0</span></td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            
+                            <div class="col-sm-3" style="background-color: #e8eaeb;">
+                                <h1><center>Gathering Traveling Spirit</center></h1>
+
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="display-th">Start</th>
+                                            <th class="display-th">End</th>
+                                            <th class="display-th">Days</th>
+                                            <th class="display-th">Left</th>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                        <td class="display-td"><span id="gTravelStart"></span></td>  
+                                        <td class="display-td"><span id="gTravelEnd"></span></td>
+                                        <td class="display-td"><span id="gTravelDays"></span></td>
+                                        <td class="display-td"><span id="gTravelLeft"></span></td>
+                                    </tr>
+                                </table></br>
+                            
+                                <h2><center>冷漠术士</center></h2></br>
+                                <table id="gathering_travelling1">
+                                    <thead>
+                                        <tr>
+                                            <th style="opacity: 0.0;">CREDITS_HERE</th>
+                                            <th class="display-th">Candle</th>
+                                            <th class="display-th">Heart</th>
+                                            <th class="display-th">Rcandle</th>
+                                            <th class="display-th">Trade</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td class="display-td">动作 lvl 2</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td">4</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="冷漠术士_动作lvl2" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">魔法节点</td>
+                                            <td class="display-td">5</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="冷漠术士_魔法节点1" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">面具</td>
+                                            <td class="display-td">42</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="冷漠术士_面具" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">爱心节点</td>
+                                            <td class="display-td">3</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="冷漠术士_爱心节点" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">永翼节点</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td">2</td>
+                                            <td class="display-td"><input type="checkbox" id="冷漠术士_永翼节点" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">动作 lvl 3</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td">3</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="冷漠术士_动作lvl3" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">动作 lvl 4</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td">6</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="冷漠术士_动作lvl3" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">魔法节点</td>
+                                            <td class="display-td">5</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="冷漠术士_魔法节点2" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">发型</td>
+                                            <td class="display-td">42</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="冷漠术士_发型" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">斗篷</td>
+                                            <td class="display-td">70</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="冷漠术士_斗篷" onchange="update()"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                </br><h2><center>赞许壁画家</center></h2></br>
+                                <table id="gathering_travelling2">
+                                    <thead>
+                                        <tr>
+                                            <th style="opacity: 0.0;">CREDITS_HERE</th>
+                                            <th class="display-th">Candle</th>
+                                            <th class="display-th">Heart</th>
+                                            <th class="display-th">Rcandle</th>
+                                            <th class="display-th">Trade</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td class="display-td">动作 lvl 2</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td">4</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="赞许壁画家_动作lvl2" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">魔法节点</td>
+                                            <td class="display-td">5</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="赞许壁画家_魔法节点1" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">面具</td>
+                                            <td class="display-td">30</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="赞许壁画家_面具" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">爱心节点</td>
+                                            <td class="display-td">3</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="赞许壁画家_爱心节点" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">永翼节点</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td">2</td>
+                                            <td class="display-td"><input type="checkbox" id="赞许壁画家_永翼节点" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">动作 lvl 3</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td">3</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="赞许壁画家_动作lvl3" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">动作 lvl 4</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td">6</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="赞许壁画家_动作lvl3" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">魔法节点</td>
+                                            <td class="display-td">5</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="赞许壁画家_魔法节点2" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">发型</td>
+                                            <td class="display-td">34</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="赞许壁画家_发型" onchange="update()"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                </br><h2><center>威严舰长</center></h2></br>
+                                <table id="gathering_travelling3">
+                                    <thead>
+                                        <tr>
+                                            <th style="opacity: 0.0;">CREDITS_HERE</th>
+                                            <th class="display-th">Candle</th>
+                                            <th class="display-th">Heart</th>
+                                            <th class="display-th">Rcandle</th>
+                                            <th class="display-th">Trade</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td class="display-td">动作 lvl 2</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td">4</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="威严舰长_动作lvl2" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">魔法节点</td>
+                                            <td class="display-td">5</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="威严舰长_魔法节点1" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">发型</td>
+                                            <td class="display-td">45</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="威严舰长_发型" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">爱心节点</td>
+                                            <td class="display-td">3</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="威严舰长_爱心节点" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">永翼节点</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td">2</td>
+                                            <td class="display-td"><input type="checkbox" id="威严舰长_永翼节点" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">动作 lvl 3</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td">3</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="威严舰长_动作lvl3" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">动作 lvl 4</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td">6</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="威严舰长_动作lvl3" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">魔法节点</td>
+                                            <td class="display-td">5</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="威严舰长_魔法节点2" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">面具</td>
+                                            <td class="display-td">40</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="威严舰长_面具" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">斗篷</td>
+                                            <td class="display-td">70</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="威严舰长_斗篷" onchange="update()"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                </br><h2><center>焦急的技术人员</center></h2></br>
+                                <table id="gathering_travelling4">
+                                    <thead>
+                                        <tr>
+                                            <th style="opacity: 0.0;">CREDITS_HERE</th>
+                                            <th class="display-th">Candle</th>
+                                            <th class="display-th">Heart</th>
+                                            <th class="display-th">Rcandle</th>
+                                            <th class="display-th">Trade</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td class="display-td">乐谱</td>
+                                            <td class="display-td">22</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="焦急的技术人员_乐谱" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">魔法节点</td>
+                                            <td class="display-td">5</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="焦急的技术人员_魔法节点1" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">发型</td>
+                                            <td class="display-td">48</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="焦急的技术人员_发型" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">爱心节点</td>
+                                            <td class="display-td">3</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="焦急的技术人员_爱心节点" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">永翼节点</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td">2</td>
+                                            <td class="display-td"><input type="checkbox" id="焦急的技术人员_永翼节点" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">魔法节点</td>
+                                            <td class="display-td">5</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="焦急的技术人员_魔法节点2" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">动作 lvl 2</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td">8</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="焦急的技术人员_动作lvl2" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">面具</td>
+                                            <td class="display-td">34</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="焦急的技术人员_面具" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">服饰</td>
+                                            <td class="display-td">70</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="焦急的技术人员_服饰" onchange="update()"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="tol-th">CREDITS_HERE</th>
+                                            <th class="tol-th">Candle</th>
+                                            <th class="tol-th">Heart</th>
+                                            <th class="tol-th">Rcandle</th>
+                                            <th class="tol-th">Trade</th>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                        <td class="tol-td">Total Need: </td>
+                                        <td class="tol-td"><span id="gTotalCandle">0</span></td>  
+                                        <td class="tol-td"><span id="gTotalHeart">0</span></td>
+                                        <td class="tol-td"><span id="gTotalRcandle">0</span></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tol-td">During Event: </td>
+                                        <td class="tol-td"><span id="gDuringCandle">0</span></td>  
+                                        <td class="tol-td"><span id="gDuringHeart">0</span></td>
+                                        <td class="tol-td"><span id="gDuringRcandle">0</span></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tol-td">After End: </td>
+                                        <td class="tol-td"><span id="gAfterCandle">0</span></td>  
+                                        <td class="tol-td"><span id="gAfterHeart">0</span></td>
+                                        <td class="tol-td"><span id="gAfterRcandle">0</span></td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+        
+                            <div class="col-sm-3" style="background-color:#f1f1f2;">
+                                <h1><center>Season Spirit</center></h1>
+
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="display-th">Start</th>
+                                            <th class="display-th">End</th>
+                                            <th class="display-th">Days</th>
+                                            <th class="display-th">Left</th>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                        <td class="display-td"><span id="sTravelStart"></span></td>  
+                                        <td class="display-td"><span id="sTravelEnd"></span></td>
+                                        <td class="display-td"><span id="sTravelDays"></span></td>
+                                        <td class="display-td"><span id="sTravelLeft"></span></td>
+                                    </tr>
+                                </table></br>
+                                
+                                <h2><center>采药人</center></h2></br>
+                                <table id="season_spirit1">
+                                    <thead>
+                                        <tr>
+                                            <th style="opacity: 0.0;">CREDITS_HERE</th>
+                                            <th class="display-th">Season Candle</th>
+                                            <th class="display-th">Trade</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td class="display-td">魔法节点</td>
+                                            <td class="display-td">16</td>
+                                            <td class="display-td"><input type="checkbox" id="采药人_魔法节点1" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">发型</td>
+                                            <td class="display-td">26</td>
+                                            <td class="display-td"><input type="checkbox" id="采药人_发型" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">动作 lvl 3</td>
+                                            <td class="display-td">30</td>
+                                            <td class="display-td"><input type="checkbox" id="采药人_动作lvl3" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">装饰品</td>
+                                            <td class="display-td">36</td>
+                                            <td class="display-td"><input type="checkbox" id="采药人_装饰品" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">季节爱心</td>
+                                            <td class="display-td">3</td>
+                                            <td class="display-td"><input type="checkbox" id="采药人_季节爱心" onchange="update()"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                </br><h2><center>猎手</center></h2></br>
+                                <table id="season_spirit2">
+                                    <thead>
+                                        <tr>
+                                            <th style="opacity: 0.0;">CREDITS_HERE</th>
+                                            <th class="display-th">Season Candle</th>
+                                            <th class="display-th">Trade</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td class="display-td">服饰</td>
+                                            <td class="display-td">8</td>
+                                            <td class="display-td"><input type="checkbox" id="猎手_服饰" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">动作 lvl 3</td>
+                                            <td class="display-td">20</td>
+                                            <td class="display-td"><input type="checkbox" id="猎手_动作lvl3" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">魔法节点</td>
+                                            <td class="display-td">28</td>
+                                            <td class="display-td"><input type="checkbox" id="猎手_魔法节点1" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">斗篷</td>
+                                            <td class="display-td">34</td>
+                                            <td class="display-td"><input type="checkbox" id="猎手_斗篷" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">季节爱心</td>
+                                            <td class="display-td">3</td>
+                                            <td class="display-td"><input type="checkbox" id="猎手_季节爱心" onchange="update()"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                </br><h2><center>领主</center></h2></br>
+                                <table id="season_spirit3">
+                                    <thead>
+                                        <tr>
+                                            <th style="opacity: 0.0;">CREDITS_HERE</th>
+                                            <th class="display-th">Season Candle</th>
+                                            <th class="display-th">Trade</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td class="display-td">魔法节点</td>
+                                            <td class="display-td">6</td>
+                                            <td class="display-td"><input type="checkbox" id="领主_魔法节点1" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">面具</td>
+                                            <td class="display-td">18</td>
+                                            <td class="display-td"><input type="checkbox" id="领主_面具" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">魔法节点</td>
+                                            <td class="display-td">26</td>
+                                            <td class="display-td"><input type="checkbox" id="领主_魔法节点2" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">乐谱</td>
+                                            <td class="display-td">32</td>
+                                            <td class="display-td"><input type="checkbox" id="领主_乐谱" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">季节爱心</td>
+                                            <td class="display-td">3</td>
+                                            <td class="display-td"><input type="checkbox" id="领主_季节爱心" onchange="update()"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                </br><h2><center>公主</center></h2></br>
+                                <table id="season_spirit4">
+                                    <thead>
+                                        <tr>
+                                            <th style="opacity: 0.0;">CREDITS_HERE</th>
+                                            <th class="display-th">Season Candle</th>
+                                            <th class="display-th">Trade</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td class="display-td">面具</td>
+                                            <td class="display-td">8</td>
+                                            <td class="display-td"><input type="checkbox" id="公主_面具" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">魔法节点</td>
+                                            <td class="display-td">18</td>
+                                            <td class="display-td"><input type="checkbox" id="公主_魔法节点1" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">动作 lvl 3</td>
+                                            <td class="display-td">22</td>
+                                            <td class="display-td"><input type="checkbox" id="公主_动作lvl3" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">服饰</td>
+                                            <td class="display-td">26</td>
+                                            <td class="display-td"><input type="checkbox" id="公主_服饰" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">魔法节点</td>
+                                            <td class="display-td">32</td>
+                                            <td class="display-td"><input type="checkbox" id="公主_魔法节点1" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">季节爱心</td>
+                                            <td class="display-td">3</td>
+                                            <td class="display-td"><input type="checkbox" id="公主_季节爱心" onchange="update()"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                </br><h2><center>向导</center></h2></br>
+                                <table id="season_spirit5">
+                                    <thead>
+                                        <tr>
+                                            <th style="opacity: 0.0;">CREDITS_HERE</th>
+                                            <th class="display-th">Candle</th>
+                                            <th class="display-th">Season Heart</th>
+                                            <th class="display-th">Trade</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td class="display-td">发型</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td">1</td>
+                                            <td class="display-td"><input type="checkbox" id="向导_发型" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">服饰</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td">1</td>
+                                            <td class="display-td"><input type="checkbox" id="向导_服饰" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">斗篷</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td">2</td>
+                                            <td class="display-td"><input type="checkbox" id="向导_斗篷" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">头饰</td>
+                                            <td class="display-td">50</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="向导_头饰" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">面具</td>
+                                            <td class="display-td">120</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="向导_面具" onchange="update()"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </br><table>
+                                    <thead>
+                                        <tr>
+                                            <th class="tol-th">CREDITS_HERE</th>
+                                            <th class="tol-th2">Candle</th>
+                                            <th class="tol-th2">SCandle</th>
+                                            <th class="tol-th2">SHeart</th>
+                                            <th class="tol-th">Trade</th>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                        <td class="tol-td">Total Need: </td>
+                                        <td class="tol-td"><span id="sTotalCandle">0</span></td>  
+                                        <td class="tol-td"><span id="sTotalSeasonCandle">0</span></td>
+                                        <td class="tol-td"><span id="sTotalSeasonHeart">0</span></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tol-td">During Event: </td>
+                                        <td class="tol-td"><span id="sDuringCandle">0</span></td>  
+                                        <td class="tol-td"><span id="sDuringSeasonCandle">0</span></td>
+                                        <td class="tol-td"><span id="sDuringSeasonHeart">0</span></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tol-td">After End: </td>
+                                        <td class="tol-td"><span id="sAfterCandle">0</span></td>  
+                                        <td class="tol-td"><span id="sAfterSeasonCandle">0</span></td>
+                                        <td class="tol-td"><span id="sAfterSeasonHeart">0</span></td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+        
+                            <div class="col-sm-3" style="background-color:#e8eaeb;">
+                                <h1><center>Event Spirit</center></h1>
+                                <h2><center>花憩节活动</center></h2>
+
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="display-th">Start</th>
+                                            <th class="display-th">End</th>
+                                            <th class="display-th">Days</th>
+                                            <th class="display-th">Left</th>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                        <td class="display-td"><span id="eTravelStart"></span></td>  
+                                        <td class="display-td"><span id="eTravelEnd"></span></td>
+                                        <td class="display-td"><span id="eTravelDays"></span></td>
+                                        <td class="display-td"><span id="eTravelLeft"></span></td>
+                                    </tr>
+                                </table></br>
+                            
+
+                                <table id="event_event">
+                                    <thead>
+                                        <tr>
+                                            <th style="opacity: 0.0;">CREDITS_HERE</th>
+                                            <th class="display-th">Candle</th>
+                                            <th class="display-th">Heart</th>
+                                            <th class="display-th">ETicket</th>
+                                            <th class="display-th">Trade</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td class="display-td">百合花斗篷</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td">48</td>
+                                            <td class="display-td"><input type="checkbox" id="花憩节_百合花斗篷" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">刺猬头发型</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td">24</td>
+                                            <td class="display-td"><input type="checkbox" id="花憩节_刺猬头发型" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">百合花造型发型</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td">24</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="花憩节_百合花造型发型" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tol-th">CREDITS_HERE</td>
+                                            <td class="tol-th"></td>
+                                            <td class="tol-th"></td>
+                                            <td class="tol-th"></td>
+                                            <td class="tol-th"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">樱花斗篷</td>
+                                            <td class="display-td">70</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="花憩节_樱花斗篷" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">樱花发型</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td">20</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="花憩节_樱花发型" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">引蝶小水池</td>
+                                            <td class="display-td">80</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="花憩节_引蝶小水池" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">紫藤花斗篷</td>
+                                            <td class="display-td">105</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="花憩节_紫藤花斗篷" onchange="update()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="display-td">郁金香斗篷</td>
+                                            <td class="display-td">110</td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"></td>
+                                            <td class="display-td"><input type="checkbox" id="花憩节_郁金香斗篷" onchange="update()"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="tol-th">CREDITS_HERE</th>
+                                            <th class="tol-th">Candle</th>
+                                            <th class="tol-th">Heart</th>
+                                            <th class="tol-th">ETicket</th>
+                                            <th class="tol-th">Trade</th>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                        <td class="tol-td">Total Need: </td>
+                                        <td class="tol-td"><span id="eTotalCandle">0</span></td>  
+                                        <td class="tol-td"><span id="eTotalHeart">0</span></td>
+                                        <td class="tol-td"><span id="eTotalTicket">0</span></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tol-td">During Event: </td>
+                                        <td class="tol-td"><span id="eDuringCandle">0</span></td>  
+                                        <td class="tol-td"><span id="eDuringHeart">0</span></td>
+                                        <td class="tol-td"><span id="eDuringTicket">0</span></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tol-td">After End: </td>
+                                        <td class="tol-td"><span id="eAfterCandle">0</span></td>  
+                                        <td class="tol-td"><span id="eAfterHeart">0</span></td>
+                                        <td class="tol-td"><span id="eAfterTicket">0</span></td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+
+                <div class="col-sm-1"></div>
+
+            </div>
+        </content>
+
+        <foooter class="container-fluid">
+            <div style="text-align: center;">
+                <p>© 2024 NG MING TECK. All rights reserved.</p>
+            </div>  
+        </foooter>
+
+        <script>
+            function displayTravelingDate() {
+                var start = new Date(2024, 1, 29, 16, 0, 0);
+                var end = new Date(2024, 2, 4, 14, 59, 0);
+                var today = new Date();
+
+                // Calculate the duration in milliseconds
+                var days = Math.floor((end - start) / (1000 * 60 * 60 * 24));
+                var left = Math.floor((end - today) / (1000 * 60 * 60 * 24));
+
+                // Format dates
+                var startDateString = start.toLocaleDateString();
+                var endDateString = end.toLocaleDateString();
+
+                // 更新总数显示
+                document.getElementById('nTravelStart').innerText = startDateString;
+                document.getElementById('nTravelEnd').innerText = endDateString;
+                document.getElementById('nTravelDays').innerText = days+1;
+                document.getElementById('nTravelLeft').innerText = left;
+            }
+
+            function displayGatheringDate() {
+                var start = new Date(2024, 2, 4, 16, 0, 0);
+                var end = new Date(2024, 2, 18, 14, 59, 0);
+                var today = new Date();
+
+                // Calculate the duration in milliseconds
+                var days = Math.floor((end - start) / (1000 * 60 * 60 * 24));
+                var left = Math.floor((end - today) / (1000 * 60 * 60 * 24));
+
+                // Format dates
+                var startDateString = start.toLocaleDateString();
+                var endDateString = end.toLocaleDateString();
+
+                // 更新总数显示
+                document.getElementById('gTravelStart').innerText = startDateString;
+                document.getElementById('gTravelEnd').innerText = endDateString;
+                document.getElementById('gTravelDays').innerText = days+1;
+                document.getElementById('gTravelLeft').innerText = left;
+            }
+
+            function displaySeasonDate() {
+                var start = new Date(2024, 0, 15, 16, 0, 0);
+                var end = new Date(2024, 2, 31, 14, 59, 0);
+                var today = new Date();
+
+                // Calculate the duration in milliseconds
+                var days = Math.floor((end - start) / (1000 * 60 * 60 * 24));
+                var left = Math.floor((end - today) / (1000 * 60 * 60 * 24));
+
+                // Format dates
+                var startDateString = start.toLocaleDateString();
+                var endDateString = end.toLocaleDateString();
+
+                // 更新总数显示
+                document.getElementById('sTravelStart').innerText = startDateString;
+                document.getElementById('sTravelEnd').innerText = endDateString;
+                document.getElementById('sTravelDays').innerText = days+1;
+                document.getElementById('sTravelLeft').innerText = left;
+            }
+
+            function displayEventDate() {
+                var start = new Date(2024, 2, 25, 16, 0, 0);
+                var end = new Date(2024, 3, 15, 14, 59, 0);
+                var today = new Date();
+
+                // Calculate the duration in milliseconds
+                var days = Math.floor((end - start) / (1000 * 60 * 60 * 24));
+                var left = Math.floor((end - today) / (1000 * 60 * 60 * 24));
+
+                // Format dates
+                var startDateString = start.toLocaleDateString();
+                var endDateString = end.toLocaleDateString();
+
+                // 更新总数显示
+                document.getElementById('eTravelStart').innerText = startDateString;
+                document.getElementById('eTravelEnd').innerText = endDateString;
+                document.getElementById('eTravelDays').innerText = days+1;
+                document.getElementById('eTravelLeft').innerText = left;
+            }
+
+            function updateNormal() {
+                // Total Candle
+                var totalCandles = 0;
+                var totalHearts = 0;
+                var totalRcandles = 0;
+                var checkboxes = document.querySelectorAll('#normal_travelling input[type="checkbox"]');
+                checkboxes.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        var row = checkbox.parentNode.parentNode;
+                        var candles = parseInt(row.cells[1].innerText) || 0;
+                        var hearts = parseInt(row.cells[2].innerText) || 0;
+                        var rcandle = parseInt(row.cells[3].innerText) || 0;
+                        totalCandles += candles;
+                        totalHearts += hearts;
+                        totalRcandles += rcandle; // 假设红蜡烛数量为 5 减去蜡烛数量的差
+                    }
+                });
+
+                // Candle during event
+                var cpd = parseInt(document.getElementById('cpd').value) || 0;
+                var nTravelLeft = parseInt(document.getElementById('nTravelLeft').innerText) || 0;
+                var nDuringCandle = cpd * nTravelLeft;
+
+                // Heart during event
+                var hpd = parseInt(document.getElementById('hpd').value) || 0;
+                var nDuringHeart = hpd * nTravelLeft;
+
+                // After end candle
+                var candle = parseInt(document.getElementById('candle').value) || 0;
+                var nAfterCandle = candle + nDuringCandle - totalCandles;
+
+                // After end heart
+                var heart = parseInt(document.getElementById('heart').value) || 0;
+                var nAfterHeart = heart + nDuringHeart - totalHearts;
+
+                // After end red candle
+                var rcandle = parseInt(document.getElementById('rcandle').value) || 0;
+                var nAfterRcandle = rcandle - totalRcandles;
+
+                // Send Alert if no enough candle
+                if (nAfterCandle < 0) {
+                    alert("Not Enough Candle");
+                } else if (nAfterHeart < 0) {
+                    alert("Not Enough Heart");
+                } else if (nAfterRcandle < 0) {
+                    alert("Not Enough Red Candle");
+                }
+
+                document.getElementById('nTotalCandle').innerText = totalCandles;
+                document.getElementById('nTotalHeart').innerText = totalHearts;
+                document.getElementById('nTotalRcandle').innerText = totalRcandles;
+                document.getElementById('nDuringCandle').innerText = nDuringCandle;
+                document.getElementById('nDuringHeart').innerText = nDuringHeart;
+                document.getElementById('nAfterCandle').innerText = nAfterCandle;
+                document.getElementById('nAfterHeart').innerText = nAfterHeart;
+                document.getElementById('nAfterRcandle').innerText = nAfterRcandle;
+            }
+
+            function updateGathering() {
+                // Total Candle
+                var totalCandles = 0;
+                var totalHearts = 0;
+                var totalRcandles = 0;
+
+                var checkboxes1 = document.querySelectorAll('#gathering_travelling1 input[type="checkbox"]');
+                checkboxes1.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        var row = checkbox.parentNode.parentNode;
+                        var candles = parseInt(row.cells[1].innerText) || 0;
+                        var hearts = parseInt(row.cells[2].innerText) || 0;
+                        var rcandle = parseInt(row.cells[3].innerText) || 0;
+                        totalCandles += candles;
+                        totalHearts += hearts;
+                        totalRcandles += rcandle;
+                    }
+                });
+
+                var checkboxes2 = document.querySelectorAll('#gathering_travelling2 input[type="checkbox"]');
+                checkboxes2.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        var row = checkbox.parentNode.parentNode;
+                        var candles = parseInt(row.cells[1].innerText) || 0;
+                        var hearts = parseInt(row.cells[2].innerText) || 0;
+                        var rcandle = parseInt(row.cells[3].innerText) || 0;
+                        totalCandles += candles;
+                        totalHearts += hearts;
+                        totalRcandles += rcandle;
+                    }
+                });
+
+                var checkboxes3 = document.querySelectorAll('#gathering_travelling3 input[type="checkbox"]');
+                checkboxes3.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        var row = checkbox.parentNode.parentNode;
+                        var candles = parseInt(row.cells[1].innerText) || 0;
+                        var hearts = parseInt(row.cells[2].innerText) || 0;
+                        var rcandle = parseInt(row.cells[3].innerText) || 0;
+                        totalCandles += candles;
+                        totalHearts += hearts;
+                        totalRcandles += rcandle;
+                    }
+                });
+
+                var checkboxes4 = document.querySelectorAll('#gathering_travelling4 input[type="checkbox"]');
+                checkboxes4.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        var row = checkbox.parentNode.parentNode;
+                        var candles = parseInt(row.cells[1].innerText) || 0;
+                        var hearts = parseInt(row.cells[2].innerText) || 0;
+                        var rcandle = parseInt(row.cells[3].innerText) || 0;
+                        totalCandles += candles;
+                        totalHearts += hearts;
+                        totalRcandles += rcandle;
+                    }
+                });
+
+                // Candle during event
+                var cpd = parseInt(document.getElementById('cpd').value) || 0;
+                var gTravelEnd = new Date(document.getElementById('gTravelEnd').innerText).getTime() || 0;
+                var nTravelEnd = new Date(document.getElementById('nTravelEnd').innerText).getTime() || 0;
+                var days = Math.floor((gTravelEnd - nTravelEnd) / (1000 * 60 * 60 * 24));
+                var gDuringCandle = cpd * days;
+
+                // Heart during event
+                var hpd = parseInt(document.getElementById('hpd').value) || 0;
+                var gDuringHeart = hpd * days;
+
+                // After end candle
+                var nAfterCandle = parseInt(document.getElementById('nAfterCandle').innerText) || 0;
+                var gAfterCandle = gDuringCandle + nAfterCandle - totalCandles;
+
+                // After end heart
+                var nAfterHeart = parseInt(document.getElementById('nAfterHeart').innerText) || 0;
+                var gAfterHeart = gDuringHeart + nAfterHeart - totalHearts;
+
+                // After end red candle
+                var nAfterRcandle = parseInt(document.getElementById('nAfterRcandle').innerText) || 0;
+                var gAfterRcandle = nAfterRcandle - totalRcandles;
+
+                // Send Alert if no enough candle
+                if (gAfterCandle < 0) {
+                    alert("Not Enough Candle");
+                } else if (gAfterHeart < 0) {
+                    alert("Not Enough Heart");
+                } else if (gAfterRcandle < 0) {
+                    alert("Not Enough Red Candle");
+                }
+
+                document.getElementById('gTotalCandle').innerText = totalCandles;
+                document.getElementById('gTotalHeart').innerText = totalHearts;
+                document.getElementById('gTotalRcandle').innerText = totalRcandles;
+                document.getElementById('gDuringCandle').innerText = gDuringCandle;
+                document.getElementById('gDuringHeart').innerText = gDuringHeart;
+                document.getElementById('gAfterCandle').innerText = gAfterCandle;
+                document.getElementById('gAfterHeart').innerText = gAfterHeart;
+                document.getElementById('gAfterRcandle').innerText = gAfterRcandle;
+
+            }
+
+            function updateSeason() {
+                // Total Candle
+                var totalCandles = 0;
+                var totalScandles = 0;
+                var totalShearts = 0;
+
+                var checkboxes1 = document.querySelectorAll('#season_spirit1 input[type="checkbox"]');
+                checkboxes1.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        var row = checkbox.parentNode.parentNode;
+                        var Scandles = parseInt(row.cells[1].innerText) || 0;
+                        totalScandles += Scandles;
+                    }
+                });
+
+                var checkboxes2 = document.querySelectorAll('#season_spirit2 input[type="checkbox"]');
+                checkboxes2.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        var row = checkbox.parentNode.parentNode;
+                        var Scandles = parseInt(row.cells[1].innerText) || 0;
+                        totalScandles += Scandles;
+                    }
+                });
+
+                var checkboxes3 = document.querySelectorAll('#season_spirit3 input[type="checkbox"]');
+                checkboxes3.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        var row = checkbox.parentNode.parentNode;
+                        var Scandles = parseInt(row.cells[1].innerText) || 0;
+                        totalScandles += Scandles;
+                    }
+                });
+
+                var checkboxes4 = document.querySelectorAll('#season_spirit4 input[type="checkbox"]');
+                checkboxes4.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        var row = checkbox.parentNode.parentNode;
+                        var Scandles = parseInt(row.cells[1].innerText) || 0;
+                        totalScandles += Scandles;
+                    }
+                });
+
+                var checkboxes5 = document.querySelectorAll('#season_spirit5 input[type="checkbox"]');
+                checkboxes5.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        var row = checkbox.parentNode.parentNode;
+                        var candles = parseInt(row.cells[1].innerText) || 0;
+                        var Sheart = parseInt(row.cells[2].innerText) || 0;
+                        totalCandles += candles;
+                        totalShearts += Sheart;
+                    }
+                });
+
+                // Candle during season
+                var cpd = parseInt(document.getElementById('cpd').value) || 0;
+                var sTravelEnd = new Date(document.getElementById('sTravelEnd').innerText).getTime() || 0;
+                var gTravelEnd = new Date(document.getElementById('gTravelEnd').innerText).getTime() || 0;
+                var days = Math.floor((sTravelEnd - gTravelEnd) / (1000 * 60 * 60 * 24));
+                var sDuringCandle = cpd * days;
+
+                // Season Candle during season
+                var scpd = parseInt(document.getElementById('scpd').value) || 0;
+                var day = parseInt(document.getElementById('sTravelLeft').innerText) || 0;
+                var sDuringSeasonCandle = scpd * day;
+
+                // Season Heart during season
+                var sDuringSeasonHeart = 4;
+
+                // After end candle
+                var gAfterCandle = parseInt(document.getElementById('gAfterCandle').innerText) || 0;
+                var sAfterCandle = sDuringCandle + gAfterCandle - totalCandles;
+
+                // After end season candle
+                var scandle = parseInt(document.getElementById('scandle').value) || 0;
+                var sAfterSeasonCandle = scandle + sDuringSeasonCandle - totalScandles;
+
+                // After end season heart
+                var sheart = parseInt(document.getElementById('sheart').value) || 0;
+                var sAfterSeasonHeart = sDuringSeasonHeart + sheart - totalShearts;
+
+                // Send Alert if no enough candle
+                if (sAfterCandle < 0) {
+                    alert("Not Enough Candle");
+                } else if (sAfterSeasonCandle < 0) {
+                    alert("Not Enough Season Candle");
+                } else if (sAfterSeasonHeart < 0) {
+                    alert("Not Enough Season Heart");
+                }
+
+                document.getElementById('sTotalCandle').innerText = totalCandles;
+                document.getElementById('sTotalSeasonCandle').innerText = totalScandles;
+                document.getElementById('sTotalSeasonHeart').innerText = totalShearts;
+
+                document.getElementById('sDuringCandle').innerText = sDuringCandle;
+                document.getElementById('sDuringSeasonCandle').innerText = sDuringSeasonCandle;
+                document.getElementById('sDuringSeasonHeart').innerText = sDuringSeasonHeart;
+
+                document.getElementById('sAfterCandle').innerText = sAfterCandle;
+                document.getElementById('sAfterSeasonCandle').innerText = sAfterSeasonCandle;
+                document.getElementById('sAfterSeasonHeart').innerText = sAfterSeasonHeart;
+
+            }
+
+            function updateEvent() {
+                // Total Candle
+                var totalCandles = 0;
+                var totalHearts = 0;
+                var totalTicket = 0;
+                var checkboxes = document.querySelectorAll('#event_event input[type="checkbox"]');
+                checkboxes.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        var row = checkbox.parentNode.parentNode;
+                        var candles = parseInt(row.cells[1].innerText) || 0;
+                        var hearts = parseInt(row.cells[2].innerText) || 0;
+                        var ticket = parseInt(row.cells[3].innerText) || 0;
+                        totalCandles += candles;
+                        totalHearts += hearts;
+                        totalTicket += ticket;
+                    }
+                });
+
+                // Candle during event
+                var cpd = parseInt(document.getElementById('cpd').value) || 0;
+                var eTravelEnd = new Date(document.getElementById('eTravelEnd').innerText).getTime() || 0;
+                var sTravelEnd = new Date(document.getElementById('sTravelEnd').innerText).getTime() || 0;
+                var days = Math.floor((eTravelEnd - sTravelEnd) / (1000 * 60 * 60 * 24));
+                var eDuringCandle = cpd * days;
+
+                // Heart during event
+                var hpd = parseInt(document.getElementById('hpd').value) || 0;
+                var eDuringHeart = hpd * days;
+
+                // Heart during event
+                var tpd = parseInt(document.getElementById('tpd').value) || 0;
+                var eDuringTicket = tpd * days;
+
+                // After end candle
+                var sAfterCandle = parseInt(document.getElementById('sAfterCandle').innerText) || 0;
+                var sAfterSeasonCandle = parseInt(document.getElementById('sAfterSeasonCandle').innerText) || 0;
+                var eAfterCandle = sAfterCandle + eDuringCandle + sAfterSeasonCandle - totalCandles;
+
+                // After end heart
+                var gAfterHeart = parseInt(document.getElementById('gAfterHeart').innerText) || 0;
+                var eAfterHeart = gAfterHeart + eDuringHeart - totalHearts;
+
+                // After end ticket
+                var ticket = parseInt(document.getElementById('eticket').value) || 0;
+                var eAfterTicket = ticket + eDuringTicket - totalTicket;
+
+                // Send Alert if no enough candle
+                if (eAfterCandle < 0) {
+                    alert("Not Enough Candle");
+                } else if (eAfterHeart < 0) {
+                    alert("Not Enough Heart");
+                } else if (eAfterTicket < 0) {
+                    alert("Not Enough Ticket");
+                }
+
+                document.getElementById('eTotalCandle').innerText = totalCandles;
+                document.getElementById('eTotalHeart').innerText = totalHearts;
+                document.getElementById('eTotalTicket').innerText = totalTicket;
+                document.getElementById('eDuringCandle').innerText = eDuringCandle;
+                document.getElementById('eDuringHeart').innerText = eDuringHeart;
+                document.getElementById('eDuringTicket').innerText = eDuringTicket;
+                document.getElementById('eAfterCandle').innerText = eAfterCandle;
+                document.getElementById('eAfterHeart').innerText = eAfterHeart;
+                document.getElementById('eAfterTicket').innerText = eAfterTicket;
+            }
+
+            // Function to save input data to localStorage
+            function saveInputToLocalStorage() {
+                var candle = document.getElementById('candle').value;
+                var heart = document.getElementById('heart').value;
+                var scandle = document.getElementById('scandle').value;
+                var sheart = document.getElementById('sheart').value;
+                var rcandle = document.getElementById('rcandle').value;
+                var eticket = document.getElementById('eticket').value;
+                var cpd = document.getElementById('cpd').value;
+                var hpd = document.getElementById('hpd').value;
+                var scpd = document.getElementById('scpd').value;
+                var tpd = document.getElementById('tpd').value;
+
+                localStorage.setItem('candle', candle);
+                localStorage.setItem('heart', heart);
+                localStorage.setItem('scandle', scandle);
+                localStorage.setItem('sheart', sheart);
+                localStorage.setItem('rcandle', rcandle);
+                localStorage.setItem('eticket', eticket);
+                localStorage.setItem('cpd', cpd);
+                localStorage.setItem('hpd', hpd);
+                localStorage.setItem('scpd', scpd);
+                localStorage.setItem('tpd', tpd);
+
+                var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach(function(checkbox) {
+                    localStorage.setItem(checkbox.id, checkbox.checked);
+                });
+            }
+
+            function update() {
+                saveInputToLocalStorage();
+                updateNormal();
+                updateGathering();
+                updateSeason();
+                updateEvent();
+            }
+
+            window.onload = function() {
+                var candle = localStorage.getItem('candle');
+                var heart = localStorage.getItem('heart');
+                var scandle = localStorage.getItem('scandle');
+                var sheart = localStorage.getItem('sheart');
+                var rcandle = localStorage.getItem('rcandle');
+                var eticket = localStorage.getItem('eticket');
+                var cpd = localStorage.getItem('cpd');
+                var hpd = localStorage.getItem('hpd');
+                var scpd = localStorage.getItem('scpd');
+                var tpd = localStorage.getItem('tpd');
+
+                if (candle) {
+                    document.getElementById('candle').value = candle;
+                }
+                if (heart) {
+                    document.getElementById('heart').value = heart;
+                }
+                if (scandle) {
+                    document.getElementById('scandle').value = scandle;
+                }
+                if (sheart) {
+                    document.getElementById('sheart').value = sheart;
+                }
+                if (rcandle) {
+                    document.getElementById('rcandle').value = rcandle;
+                }
+                if (eticket) {
+                    document.getElementById('eticket').value = eticket;
+                }
+                if (cpd) {
+                    document.getElementById('cpd').value = cpd;
+                }
+                if (hpd) {
+                    document.getElementById('hpd').value = hpd;
+                }
+                if (scpd) {
+                    document.getElementById('scpd').value = scpd;
+                }
+                if (tpd) {
+                    document.getElementById('tpd').value = tpd;
+                }
+
+                var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach(function(checkbox) {
+                    var isChecked = localStorage.getItem(checkbox.id) === 'true';
+                    checkbox.checked = isChecked;
+                });
+                
+                displayTravelingDate();
+                displayGatheringDate();
+                displaySeasonDate();
+                displayEventDate();
+
+                update();
+            };
+  
+        </script>
+    </body>
+</html>
