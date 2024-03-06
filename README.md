@@ -16,7 +16,7 @@ You can visit the websit at https://mteck0207.github.io/SkyGameCalculator/SkyGam
 
 ### Website Screenshot
 
-![](https://mteck0207.github.io/SkyGameCalculator/Sky%20Game%20Calculator%20Version%200.1.1%20Screenshot.jpeg)
+![](https://mteck0207.github.io/SkyGameCalculator/Screenshot/Sky%20Game%20Calculator%20Version%200.1.2%20Screenshot.jpeg)
 
                 
 ----
