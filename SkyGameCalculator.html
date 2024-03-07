@@ -1367,10 +1367,12 @@
 
                 // Candle during event
                 var cpd = parseInt(document.getElementById('cpd').value) || 0;
-                var gTravelEnd = new Date(document.getElementById('gTravelEnd').innerText).getTime() || 0;
+                var gTravelEnd = new Date(2024, 2, 18, 14, 59, 0);
 //              var nTravelEnd = new Date(document.getElementById('nTravelEnd').innerText).getTime() || 0;
-                var nTravelEnd = new Date()
+                var nTravelEnd = new Date();
+                console.log(nTravelEnd);
                 var days = Math.floor((gTravelEnd - nTravelEnd) / (1000 * 60 * 60 * 24));
+                console.log(days);
                 var gDuringCandle = cpd * days;
 
                 // Heart during event
@@ -1486,8 +1488,8 @@
 
                 // Candle during season
                 var cpd = parseInt(document.getElementById('cpd').value) || 0;
-                var sTravelEnd = new Date(document.getElementById('sTravelEnd').innerText).getTime() || 0;
-                var gTravelEnd = new Date(document.getElementById('gTravelEnd').innerText).getTime() || 0;
+                var sTravelEnd = new Date(2024, 2, 31, 14, 59, 0);
+                var gTravelEnd = new Date(2024, 2, 18, 14, 59, 0);
                 var days = Math.floor((sTravelEnd - gTravelEnd) / (1000 * 60 * 60 * 24));
                 var sDuringCandle = cpd * days;
 
@@ -1571,8 +1573,8 @@
 
                 // Candle during event
                 var cpd = parseInt(document.getElementById('cpd').value) || 0;
-                var eTravelEnd = new Date(document.getElementById('eTravelEnd').innerText).getTime() || 0;
-                var sTravelEnd = new Date(document.getElementById('sTravelEnd').innerText).getTime() || 0;
+                var eTravelEnd = new Date(2024, 2, 25, 16, 0, 0);
+                var sTravelEnd = new Date(2024, 2, 31, 14, 59, 0);
                 var days = Math.floor((eTravelEnd - sTravelEnd) / (1000 * 60 * 60 * 24));
                 var eDuringCandle = cpd * days;
 
